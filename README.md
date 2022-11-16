@@ -8,5 +8,6 @@ Install requirements:
 How to use:
 
   •	open an HTML document on your device (Mozilla Firefox)
+  
   •	use arrows and spacebar controls
 
