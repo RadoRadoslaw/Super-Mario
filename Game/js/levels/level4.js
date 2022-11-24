@@ -14,8 +14,8 @@ export function level4 (){
 	game.level=4;
 	clear();
 	game.objects.push(new water(81,520));
-	game.objects.push(new watermario(40, 140, 62, 62, "", "watermario.gif"));
-	game.objects.push(new Box(0,game.height -100 ,330 ,100,"", "brown"));
+	game.objects.push(new watermario(294, 223, 62, 62, "", "watermario.gif"));
+	game.objects.push(new Box(0,game.height -100 ,330 ,100,"", ""));
 	game.objects.push(new Box(1089, 96, 98, 170, "", ""));
 	game.objects.push(new Box(543, 560, 484, 93, "",""));
 	game.objects.push(new Box(708,411 ,50, 147, "",""));

@@ -4,7 +4,7 @@ import { Model } from "../model.js";
 
 export class Zombie extends Model {
 	constructor(x, y, image) {
-		super("zombie", image || "images/zombie.png", x, y, 32, 32);
+		super("zombie", image || "images/zombie.png", x, y, 52, 52);
 		const that = this
 		this.life = 100;
 		this.timer = 60 * 8

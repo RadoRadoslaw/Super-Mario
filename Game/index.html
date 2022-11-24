@@ -4,11 +4,39 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+	<title>Document</title>
 	<link rel="stylesheet" href="style.css">
 	<title>Mario4D</title>
 </head>
 <body>
 	<div id="game"></div>
+
+	<div class="bg">
+
+		<div class="button">
+			<a class="newgame">START<br></a>
+			<a href="#LEVELS">LEVELS<br></a>
+			<a href="#SCORE">SCORE<br></a>
+			<a href="#CREDITS">CREDITS<br></a>
+			
+		</div>
+		
+		<div class="poziomy" id="LEVELS">
+			<a id="LEVEL1">LEVEL 1<br></a>
+			<a id="LEVEL2">LEVEL 2<br></a>
+			<a id="LEVEL3">LEVEL 3<br></a>
+			<a id="LEVEL4">LEVEL 4<br></a>
+		</div>
+		<div class="score" id="SCORE">
+			<a href="#SCORE">SCORE<br>1.<span id="first"></span><br>2.<br>3.<br>4.<br>
+		</a>
+	</div>
+	</div>
+
+
 	
 	<script src="js/main.js" type="module"></script>
 </body>

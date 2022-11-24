@@ -3,7 +3,8 @@ export const keyboard = {
 	left: false,
 	space: false,
 	up: false,
-	down: false
+	down: false,
+	escape: false,
 }
 
 // Przycisk wciśnięty
@@ -25,6 +26,9 @@ window.addEventListener("keydown", function (event) {
 	if (key == "ArrowDown") {
 		keyboard.down = true;
 	}
+	if (key == "Escape") {
+		keyboard.escape = true;
+	}
 });
 
 // Przycisk odpuszczono
@@ -44,5 +48,9 @@ window.addEventListener("keyup", function (event) {
 	}
 	if (key == "ArrowDown") {
 		keyboard.down = false;
+	}
+	console.log(key);
+	if (key == "Escape") {
+		keyboard.escape = false;
 	}
 });

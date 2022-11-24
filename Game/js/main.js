@@ -37,13 +37,9 @@ export function clear() {
   }
 }
 
-function reset() {
-  clear();
-  start();
-}
 window.game = game;
 
-window.addEventListener("load", level3.call());
+//window.addEventListener("load", level3.call());
 
 function resize() {
   let w = window.innerWidth / game.width;
@@ -73,3 +69,38 @@ function resize() {
 }
 resize();
 window.addEventListener("resize", resize);
+
+
+// FUnkcja pomocnicza
+export function get(query){
+  return document.querySelector(query);
+}
+
+
+get(".newgame").addEventListener("click",function(){
+  get(".bg").classList.add("hide");
+  level1();
+});
+
+get("#LEVEL1").addEventListener("click",function(){
+  get(".bg").classList.add("hide");
+  level1();
+});
+get("#LEVEL2").addEventListener("click",function(){
+  get(".bg").classList.add("hide");
+  level2();
+});
+get("#LEVEL3").addEventListener("click",function(){
+  get(".bg").classList.add("hide");
+  level3();
+});
+get("#LEVEL4").addEventListener("click",function(){
+  get(".bg").classList.add("hide");
+  level4();
+});
+let first=localStorage.getItem("wynik")
+if(first!=null){
+  get("#first").innerHTML = first;
+}
+
+
