@@ -13,4 +13,5 @@ How to use:
   
   •	use arrows and spacebar controls
 
-You can play here: https://radoradoslaw.github.io/Super-Mario/Game/
+You can play here: 
+https://radoradoslaw.github.io/Super-Mario/Game/
