@@ -23,7 +23,7 @@ body{
     bottom: 0;
     left: 0;
     right: 0;
-    background: url("/home/radoslaw/Pulpit/MarioMenu/Mario.jpg");
+    background: url("./images/Mario.jpg");
     background-size: cover;
     background-position: center center;
     display: flex;
@@ -41,7 +41,7 @@ body{
     border-radius: 12px;
     font-size: 66px;
     margin-left:16px;
-    margin-right:386px;
+    margin-right:486px;
     margin-top: 40px;
   }
 .button a{
@@ -66,7 +66,7 @@ body{
     border-radius: 12px;
     font-size: 66px;
     margin-left:16px;
-    margin-right:386px;
+    margin-right:486px;
     margin-top: 40px;
 }
 .poziomy a {
@@ -111,4 +111,22 @@ body{
 
 .hide{
     display: none;
+}
+.controls{
+    position:absolute;
+    right: 0px;
+    top: 145px;
+    width: 250px;
+    /* visibility: hidden;
+    opacity: 0;
+    transition: 0.3s; */
+    color: rgb(204, 54, 54);
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 30px;
+    margin-left:16px;
+    margin-top: 40px;
+    
 }
