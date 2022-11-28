@@ -18,7 +18,7 @@ export function level1(x = 64) {
 	// Tworzymy obiekt Player z koordynatami x 64 i y 64
 	game.objects.push(new background(100, 100));
 	game.objects.push(new Player(x, 64)); // Tutaj dodajemy go do gry
-	game.objects.push(new Box(256, 406, 94, 34, "images/box.png"));
+	game.objects.push(new Box(256, 456, 94, 34, "images/box.png"));
 	game.objects.push(new Box(456, 356, 44, 34, "images/box.png"));
 	game.objects.push(new Box(856, 406, 94, 34, "images/box.png"));
 	game.objects.push(new Box(1056, 306, 74, 34, "images/box.png"));

@@ -17,8 +17,6 @@ export class Bullet extends Model {
 				});
 			});
 			
-			
-
 			if (rotate == 1) {
 				this.rotate = -1;
 				this.x += 6

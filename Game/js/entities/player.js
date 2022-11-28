@@ -20,6 +20,8 @@ export class Player extends Model {
 		this.life = 1;
 		this.update = function () {
 			// >>>>>
+			
+
 			this.timer -= 1;
 
 			if (this.timer == 60 * 3) {
@@ -28,6 +30,13 @@ export class Player extends Model {
 
 			if (this.life <= 0) {
 				this.destroy = true;
+			}
+			if(this.destroy==true){
+				this.destroy=false;
+				this.image="images/dead.jpg"
+				this.w =264;
+				this.h =264;
+				this.stop = true;
 			}
 			if (this.stop == false) {
 				if (keyboard.left) {
@@ -72,7 +81,7 @@ export class Player extends Model {
 
 
 			if (keyboard.space == true && this.canShot <= 0) {
-				game.objects.push(new Bullet(this.x, this.y - 6, this.rotate));
+				game.objects.push(new Bullet(this.x , this.y +=12, this.rotate));
 				keyboard.space = false
 				this.canShot = 60;
 			}
@@ -109,6 +118,7 @@ export class Player extends Model {
 				}
 			});
 
+			
 
 
 
