@@ -1,7 +1,7 @@
 import { Bullet } from "../objects/bullet.js";
 import { keyboard } from "../keyboard.js";
 import { level2 } from "../levels/level2.js";
-import { game } from "../main.js";
+import { game, sfx } from "../main.js";
 import { Model } from "../model.js";
 import { level1 } from "../levels/level1.js";
 import { level3 } from "../levels/level3.js";
@@ -48,6 +48,8 @@ export class Player extends Model {
 					this.x += 4;
 				}
 				if (keyboard.up == true && this.canJump == true) {
+					sfx.jump.currentTime=0;
+					sfx.jump.play();
 					this.speedY = -12;
 					this.canJump = false;
 				}
@@ -82,11 +84,16 @@ export class Player extends Model {
 
 			if (keyboard.space == true && this.canShot <= 0) {
 				game.objects.push(new Bullet(this.x , this.y +=12, this.rotate));
-				keyboard.space = false
+				sfx.shot.currentTime=0;
+				sfx.shot.play();
+				keyboard.space = false;
 				this.canShot = 60;
+				
 			}
 			if (this.canShot > 0) {
 				this.canShot -= 1;
+				
+				
 			}
 
 

@@ -1,5 +1,5 @@
 import { Player } from "../entities/player.js";
-import { clear } from "../main.js";
+import { clear, sfx } from "../main.js";
 import { Box } from "../objects/box.js";
 import { dezert } from "../objects/dezert.js";
 import { trawka } from "../objects/trawka.js";
@@ -9,6 +9,11 @@ import { underground } from "../objects/underground.js";
 import { mushroom } from "../entities/mushroom.js";
 
 export function level3 (){
+	for(let name in sfx){
+		sfx[name].currentTime=0;
+		sfx[name].pause();
+	}
+	sfx.level3.play()
 	game.level=3;
 	clear();
 	game.objects.push(new underground(0, 0));

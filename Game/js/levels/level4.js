@@ -1,5 +1,5 @@
 // import { Player } from "../entities/player.js";
-import { clear } from "../main.js";
+import { clear, sfx } from "../main.js";
 import { Box } from "../objects/box.js";
 import { dezert } from "../objects/dezert.js";
 import { trawka } from "../objects/trawka.js";
@@ -11,6 +11,11 @@ import { water } from "../objects/water.js";
 import { watermario } from "../entities/watermario.js";
 
 export function level4 (){
+	for(let name in sfx){
+		sfx[name].currentTime=0;
+		sfx[name].pause();
+	}
+	sfx.level4.play();
 	game.level=4;
 	clear();
 	game.objects.push(new water(81,520));
@@ -31,3 +36,4 @@ export function level4 (){
 	game.objects.push(new points(100 ,20));
 	game.objects.push(new Box(1245 ,560, 53, 95, "",""));
 }
+

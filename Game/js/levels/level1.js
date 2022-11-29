@@ -3,7 +3,7 @@
 import { bat } from "../entities/bat.js";
 import { Player } from "../entities/player.js";
 import { Zombie } from "../entities/zombie.js";
-import { clear } from "../main.js";
+import { clear, sfx } from "../main.js";
 import { Box } from "../objects/box.js";
 import { points } from "../objects/points.js";
 import { trawka } from "../objects/trawka.js";
@@ -13,6 +13,11 @@ import { background } from "../objects/background.js";
 
 // Tutaj mamy funkcję start czyli po uruchomieniu gry co ma się stać
 export function level1(x = 64) {
+	for(let name in sfx){
+		sfx[name].currentTime=0;
+		sfx[name].pause();
+	}
+	sfx.level1.play();
 	game.level = 1;
 	clear();
 	// Tworzymy obiekt Player z koordynatami x 64 i y 64
@@ -36,7 +41,6 @@ export function level1(x = 64) {
 window.addEventListener('resize', function () {
 
 });
+var x = document.getElementById("myAudio"); 
 
-	// const rect = document.querySelector(".deadzone").getBoundingClientRect();
-	// rect.w = rect.width;
-	// rect.h = rect.height;
+

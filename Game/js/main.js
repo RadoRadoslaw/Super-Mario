@@ -3,6 +3,19 @@ import { level2 } from "./levels/level2.js";
 import { level3 } from "./levels/level3.js";
 import { level4 } from "./levels/level4.js";
 
+export const sfx={
+  level1: new Audio("./music/level1.mp3"),
+  level2: new Audio("./music/level2.mp3"),
+  level3: new Audio("./music/level3.mp3"),
+  level4: new Audio("./music/level4.mp3"),
+  jump: new Audio("./music/jump.mp3"),
+  shot: new Audio("./music/shot.mp3"),
+}
+sfx.level1.loop=true;
+sfx.level2.loop=true;
+sfx.level3.loop=true;
+sfx.level4.loop=true;
+
 export const game = {
   objects: [],
   level: 0,
@@ -77,9 +90,19 @@ export function get(query){
 }
 
 
+document.querySelectorAll(".button a").forEach(function(element){
+  element.addEventListener("click",function(event){
+    if(document.location.hash!=""){
+      event.preventDefault();
+      document.location.hash="";
+    }
+  })
+})
+
 get(".newgame").addEventListener("click",function(){
   get(".bg").classList.add("hide");
   level1();
+  
 });
 
 get("#LEVEL1").addEventListener("click",function(){
@@ -89,18 +112,22 @@ get("#LEVEL1").addEventListener("click",function(){
 get("#LEVEL2").addEventListener("click",function(){
   get(".bg").classList.add("hide");
   level2();
+  sfx.level2.play()
 });
 get("#LEVEL3").addEventListener("click",function(){
   get(".bg").classList.add("hide");
   level3();
+  sfx.level3.play()
 });
 get("#LEVEL4").addEventListener("click",function(){
   get(".bg").classList.add("hide");
   level4();
+  sfx.level4.play()
 });
 let first=localStorage.getItem("wynik")
 if(first!=null){
   get("#first").innerHTML = first;
 }
+
 
 
