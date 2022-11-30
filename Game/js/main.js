@@ -21,6 +21,7 @@ export const game = {
   level: 0,
   width: 1292,
   height: 656,
+  points: [],
 };
 
 function update() {
@@ -112,17 +113,17 @@ get("#LEVEL1").addEventListener("click",function(){
 get("#LEVEL2").addEventListener("click",function(){
   get(".bg").classList.add("hide");
   level2();
-  sfx.level2.play()
+  
 });
 get("#LEVEL3").addEventListener("click",function(){
   get(".bg").classList.add("hide");
   level3();
-  sfx.level3.play()
+  
 });
 get("#LEVEL4").addEventListener("click",function(){
   get(".bg").classList.add("hide");
   level4();
-  sfx.level4.play()
+  
 });
 let first=localStorage.getItem("wynik")
 if(first!=null){
@@ -130,4 +131,11 @@ if(first!=null){
 }
 
 
-
+get("#SCORE").innerHTML="";
+const wyniki=localStorage.getItem("wyniki");
+if(wyniki!=null){
+  game.points=JSON.parse(wyniki);
+  game.points.forEach(function(value,i){
+    get("#SCORE").innerHTML+=value;
+  });
+}

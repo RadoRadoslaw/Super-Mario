@@ -9,13 +9,19 @@ export class points extends Model {
 		this.wynik = 0;
 		this.update = function () {
 			this.html = `Twoj wynik: ${this.wynik}`
-			localStorage.setItem("wynik", this.wynik);
+
 
 			if (keyboard.escape == true) {
-				clear()
-				get(".bg").classList.remove("hide")
-			}
+				clear();
+				get(".bg").classList.remove("hide");
+				game.points.push(this.wynik)
+				localStorage.setItem("wyniki", JSON.stringify(game.points));
 
+				get("#SCORE").innerHTML="";
+				game.points.forEach(function(value,i){
+					get("#SCORE").innerHTML+=value;
+				});
+			}
 
 		}
 	}
