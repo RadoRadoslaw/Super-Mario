@@ -120,7 +120,6 @@ body{
     visibility: hidden;
     opacity: 0;
     transition: 0.3s;
-    color: rgb(204, 54, 54);
     padding: 5px 32px;
     text-align: center;
     text-decoration: none;
@@ -129,14 +128,12 @@ body{
     margin-left:16px;
     margin-right:386px;
     margin-top: 40px;
-}
-.score a {
     text-decoration: none;
     color: rgb(204, 39, 39) ;
     background-color: #e64b4050;
     border-radius: 12px;
+    white-space: normal;
     }
-
 .score:target{
     visibility: visible;
     opacity: 1;
