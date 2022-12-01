@@ -14,7 +14,7 @@ window.addEventListener("keydown", function (event) {
 	if (key == "ArrowRight") {
 		keyboard.right = true;
 	}
-	if (key == "ArrowLeft") {
+	if (key == "ArrowLeft" ) {
 		keyboard.left = true;
 	}
 	if (key == " ") {

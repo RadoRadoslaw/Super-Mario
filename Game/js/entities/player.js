@@ -41,7 +41,7 @@ export class Player extends Model {
 			}
 			// Prędkość x wytracanie
 			this.speedX*=.95;
-			if (this.stop == false) {
+			if (this.stop == false && this.canJump ==true ) {
 				if (keyboard.left) {
 					// Dodawanie prędkości x
 					this.speedX += -0.5;
@@ -53,7 +53,7 @@ export class Player extends Model {
 					this.rotate = -1;
 					
 				}
-				if (keyboard.right) {
+				if (keyboard.right && this.canJump ==true) {
 					this.speedX += .5;
 					if(this.speedX>=4){
 						this.speedX=4;
@@ -63,9 +63,11 @@ export class Player extends Model {
 				if (keyboard.up == true && this.canJump == true) {
 					sfx.jump.currentTime=0;
 					sfx.jump.play();
-					this.speedY = -12;
+					this.speedY = -17;
 					this.canJump = false;
+					
 				}
+			
 			}
 
 			// Dodawanie prędkości x do samego koordynatu X
@@ -114,7 +116,7 @@ export class Player extends Model {
 
 
 			if (this.canJump == false) {
-				this.speedY *= .99;
+				this.speedY *= .98;
 				this.y += this.speedY;
 				this.y += 6
 			}
