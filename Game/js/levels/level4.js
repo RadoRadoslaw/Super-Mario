@@ -21,7 +21,7 @@ export function level4 (){
 	game.objects.push(new water(81,520));
 	game.objects.push(new watermario(294, 223, 62, 62, "", "watermario.gif"));
 	game.objects.push(new Box(0,game.height -100 ,330 ,100,"", ""));
-	game.objects.push(new Box(1089, 96, 98, 170, "", ""));
+	game.objects.push(new Box(1089, 96, 98, 170, "", "", "pipewater"));
 	game.objects.push(new Box(543, 560, 484, 93, "",""));
 	game.objects.push(new Box(708,411 ,50, 147, "",""));
 	game.objects.push(new Box(280 ,38, 98, 180, "",""));
@@ -32,7 +32,7 @@ export function level4 (){
 	game.objects.push(new Box(1180, 121 ,160 ,47, "", "", ));	
 	game.objects.push(new Box(8,466 ,50, 85, "",""));
 	game.objects.push(new Box(58,510 ,50, 50, "",""));
-	game.objects.push(new Box(492 ,268 ,50, 50, "",""));
+	game.objects.push(new Box(492 ,268 ,50, 50, "","","questionmark"));
 	game.objects.push(new points(100 ,20));
 	game.objects.push(new Box(1245 ,560, 53, 95, "",""));
 }

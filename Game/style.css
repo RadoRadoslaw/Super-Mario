@@ -136,7 +136,7 @@ body{
     }
 .score:target{
     visibility: visible;
-    opacity: 1;
+    opacity: 1; 
 }
 
 .hide{

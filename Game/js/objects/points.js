@@ -14,12 +14,19 @@ export class points extends Model {
 			if (keyboard.escape == true) {
 				clear();
 				get(".bg").classList.remove("hide");
+				if (game.points.length >=4){
+		
+					game.points.splice(4,10)
+
+				}
+					
 				game.points.push(this.wynik)
+				game.points.sort(function(a,b){return b-a});
 				localStorage.setItem("wyniki", JSON.stringify(game.points));
 
 				get("#SCORE").innerHTML="";
 				game.points.forEach(function(value,i){
-					get("#SCORE").innerHTML+=value;
+					get("#SCORE").innerHTML+=`${i+1}. ${value} <br>`;
 				});
 			}
 

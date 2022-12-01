@@ -116,6 +116,37 @@ export class watermario extends Model {
         }
       });
 
+      this.collide("pipewater", function (pipe, x, y) {
+				if (x) {
+					this.x = this.old.x;
+				}
+				if (y) {
+					this.y = this.old.y;
+					this.canJump = true;
+				}
+	
+				if (keyboard.up == true ){
+				level1();
+				keyboard.up=false;
+				}
+			});
+      this.collide("questionmark", function (questionmark, x, y) {
+				if (x) {
+					this.x = this.old.x;
+				}
+				if (y) {
+					this.y = this.old.y;
+					this.canJump = true;
+				}
+	
+				if (keyboard.up == true ){
+				
+        questionmark.image = "images/splode.gif"
+
+				keyboard.up=false;
+				}
+			});
+
       // this.collide("pipe", function (pipe, x, y) {
       // 	if (x) {
       // 		this.x = this.old.x;

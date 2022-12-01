@@ -16,6 +16,7 @@ export class Player extends Model {
 		this.canShot = 0;
 		this.canJump = false;
 		this.speedY = 0;
+		this.speedX = 0;
 		this.stop = false;
 		this.life = 1;
 		this.update = function () {
@@ -38,14 +39,26 @@ export class Player extends Model {
 				this.h =264;
 				this.stop = true;
 			}
+			// Prędkość x wytracanie
+			this.speedX*=.95;
 			if (this.stop == false) {
 				if (keyboard.left) {
+					// Dodawanie prędkości x
+					this.speedX += -0.5;
+					// Limit prędkości x
+					if(this.speedX<=-4){
+						this.speedX=-4;
+					}
+
 					this.rotate = -1;
-					this.x -= 4;
+					
 				}
 				if (keyboard.right) {
+					this.speedX += .5;
+					if(this.speedX>=4){
+						this.speedX=4;
+					}
 					this.rotate = 1;
-					this.x += 4;
 				}
 				if (keyboard.up == true && this.canJump == true) {
 					sfx.jump.currentTime=0;
@@ -54,6 +67,9 @@ export class Player extends Model {
 					this.canJump = false;
 				}
 			}
+
+			// Dodawanie prędkości x do samego koordynatu X
+			this.x += this.speedX;
 
 			if (this.x < 0) {
 				this.x = 0;
@@ -157,6 +173,9 @@ export class Player extends Model {
 				keyboard.down=false;
 				}
 			});
+
+			
+		
 		}
 
 	}

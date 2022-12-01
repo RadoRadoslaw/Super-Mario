@@ -59,9 +59,6 @@ export class soldier extends Model {
 						this.y = this.old.y;
 					}
 				});
-
-
-
 				let trawka = this.get("trawka");
 				if (this.y >= trawka.y - this.h) {
 					this.y = trawka.y - this.h
