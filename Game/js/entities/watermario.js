@@ -61,7 +61,7 @@ export class watermario extends Model {
         level2();
       }
       if (this.x <= 1 && game.level != 1 && game.level !=4) {
-        level1(game.width - this.w - 1);
+        level1(game.width - this.w - 1, 0);
       }
 
       if (this.x >= game.width - this.w && game.level != 1 && game.level != 3) {

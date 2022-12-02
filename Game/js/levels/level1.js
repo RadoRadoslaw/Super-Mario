@@ -3,7 +3,7 @@
 import { bat } from "../entities/bat.js";
 import { Player } from "../entities/player.js";
 import { Zombie } from "../entities/zombie.js";
-import { clear, sfx } from "../main.js";
+import { clear, game, sfx } from "../main.js";
 import { Box } from "../objects/box.js";
 import { points } from "../objects/points.js";
 import { trawka } from "../objects/trawka.js";
@@ -12,7 +12,7 @@ import { background } from "../objects/background.js";
 
 
 // Tutaj mamy funkcję start czyli po uruchomieniu gry co ma się stać
-export function level1(x = 64) {
+export function level1(x = 64,y=game.height-100) {
 	for(let name in sfx){
 		sfx[name].currentTime=0;
 		sfx[name].pause();
@@ -22,7 +22,7 @@ export function level1(x = 64) {
 	clear();
 	// Tworzymy obiekt Player z koordynatami x 64 i y 64
 	game.objects.push(new background(100, 100));
-	game.objects.push(new Player(x, 64)); // Tutaj dodajemy go do gry
+	game.objects.push(new Player(x, y)); // Tutaj dodajemy go do gry
 	game.objects.push(new Box(256, 456, 94, 34, "images/box.png"));
 	game.objects.push(new Box(456, 356, 44, 34, "images/box.png"));
 	game.objects.push(new Box(856, 406, 94, 34, "images/box.png"));

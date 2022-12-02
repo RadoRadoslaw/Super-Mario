@@ -39,12 +39,12 @@ export class bat extends Model {
 			// }
 
 			
-			this.collide("player",function (player, x, y) {
-				player.image="images/dead.jpg"
-				player.w=264;
-				player.h=264;
-				player.stop = true
-			});
+			// this.collide("player",function (player, x, y) {
+			// 	player.image="images/dead.jpg"
+			// 	player.w=264;
+			// 	player.h=264;
+			// 	player.stop = true
+			// });
 				
 
 			if (this.x >= window.innerWidth) {

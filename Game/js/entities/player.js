@@ -21,8 +21,8 @@ export class Player extends Model {
 		this.life = 1;
 		this.update = function () {
 			// >>>>>
-			
 
+			
 			this.timer -= 1;
 
 			if (this.timer == 60 * 3) {
@@ -32,42 +32,55 @@ export class Player extends Model {
 			if (this.life <= 0) {
 				this.destroy = true;
 			}
-			if(this.destroy==true){
-				this.destroy=false;
-				this.image="images/dead.jpg"
-				this.w =264;
-				this.h =264;
+			if (this.destroy == true) {
+				this.destroy = false;
+				this.image = "images/dead.jpg"
+				this.w = 264;
+				this.h = 264;
 				this.stop = true;
 			}
+
+
 			// Prędkość x wytracanie
-			this.speedX*=.95;
-			if (this.stop == false && this.canJump ==true ) {
+			if(this.canJump==false){
+	
+				this.speedX *= .99;
+			
+			}else {
+				this.speedX *=.9;
+			}
+			
+			
+
+			if (this.stop == false && this.canJump == true) {
 				if (keyboard.left) {
 					// Dodawanie prędkości x
 					this.speedX += -0.5;
 					// Limit prędkości x
-					if(this.speedX<=-4){
-						this.speedX=-4;
-					}
+					if (this.speedX <= -4) {
+						this.speedX = -4;
+					} 
 
+			
+				
 					this.rotate = -1;
-					
+
 				}
-				if (keyboard.right && this.canJump ==true) {
+				if (keyboard.right && this.canJump == true) {
 					this.speedX += .5;
-					if(this.speedX>=4){
-						this.speedX=4;
+					if (this.speedX >= 4) {
+						this.speedX = 4;
 					}
 					this.rotate = 1;
 				}
 				if (keyboard.up == true && this.canJump == true) {
-					sfx.jump.currentTime=0;
+					sfx.jump.currentTime = 0;
 					sfx.jump.play();
 					this.speedY = -17;
 					this.canJump = false;
-					
+
 				}
-			
+
 			}
 
 			// Dodawanie prędkości x do samego koordynatu X
@@ -77,21 +90,21 @@ export class Player extends Model {
 				this.x = 0;
 			}
 
-			if (this.x >= game.width - this.w && game.level != 2 && game.level !=3) {
+			if (this.x >= game.width - this.w && game.level != 2 && game.level != 3) {
 				level2();
 			}
 			if (this.x <= 1 && game.level != 1) {
-				level1(game.width - this.w - 1);
-			}
-			
-			if (this.x >= game.width - this.w && game.level != 1 && game.level !=3) {
-				this.x = game.width -this.w
+				level1(game.width - this.w -1, game.height );
 			}
 
-			if (this.x >= game.width - 90 && game.level != 1 && game.level !=2) {
+			if (this.x >= game.width - this.w && game.level != 1 && game.level != 3) {
+				this.x = game.width - this.w
+			}
+
+			if (this.x >= game.width - 90 && game.level != 1 && game.level != 2) {
 				this.x = game.width - 90
 			}
-			if (this.x <= 41 && game.level != 1 && game.level !=2) {
+			if (this.x <= 41 && game.level != 1 && game.level != 2) {
 				this.x = 41
 			}
 
@@ -101,17 +114,17 @@ export class Player extends Model {
 
 
 			if (keyboard.space == true && this.canShot <= 0) {
-				game.objects.push(new Bullet(this.x , this.y +=12, this.rotate));
-				sfx.shot.currentTime=0;
+				game.objects.push(new Bullet(this.x, this.y += 12, this.rotate));
+				sfx.shot.currentTime = 0;
 				sfx.shot.play();
 				keyboard.space = false;
 				this.canShot = 60;
-				
+
 			}
 			if (this.canShot > 0) {
 				this.canShot -= 1;
-				
-				
+
+
 			}
 
 
@@ -132,18 +145,27 @@ export class Player extends Model {
 			this.collide("box", function (box, x, y) {
 				if (x) {
 					this.x = this.old.x;
+					this.canJump = true;
+					if(box.x + box.w < this.x){
+						this.speedX +=4;
+					}
+					if(box.x > this.x + this.w){
+						this.speedX -=4;
+					}
+					this.canJump =false;
 				}
 				if (y) {
 					this.y = this.old.y;
 					this.canJump = true;
-					if(box.y+box.h<this.y){
-						this.speedY+=2;
-						this.canJump=false;
+					if (box.y + box.h < this.y) {
+						this.speedY += 2;
+						this.canJump = false;
 					}
+				
 				}
 			});
 
-			
+
 
 
 
@@ -155,10 +177,10 @@ export class Player extends Model {
 					this.y = this.old.y;
 					this.canJump = true;
 				}
-	
-				if (keyboard.down == true ){
-				level3();
-				keyboard.down=false;
+
+				if (keyboard.down == true) {
+					level3();
+					keyboard.down = false;
 				}
 			});
 			this.collide("box2", function (box2, x, y) {
@@ -169,15 +191,15 @@ export class Player extends Model {
 					this.y = this.old.y;
 					this.canJump = true;
 				}
-	
-				if (keyboard.down == true ){
-				level4();
-				keyboard.down=false;
+
+				if (keyboard.down == true) {
+					level4();
+					keyboard.down = false;
 				}
 			});
 
-			
-		
+
+
 		}
 
 	}
