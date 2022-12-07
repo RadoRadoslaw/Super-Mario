@@ -1,18 +1,32 @@
 For the training purposes I created my own version of the game Super Mario. The game uses the engine provided by W84Soft (Allsenses)
+
 The engine is responsible for:
+
 Addition (exept  game.objects.push),
+
 Removal,
+
 Display,
+
 Scaling
+
 Updating objects during the game using the API features provided by web browsers,
+
 Elements responsible for the collision system (with a few exceptions)
+
 Sounds, music and graphics are not mine, I used most of them from free resources.
 
+
 I 'm responsible for the creation:
+
 Logic - health of enemies, damage from projectiles,
+
 Event handlers - the player clicks an arrow on the keyboard, the player collides with another object.
+
 All mechanics - shooting projectiles, leveling opponents with a jump
+
 Transition between levels
+
 User interface
 
 
