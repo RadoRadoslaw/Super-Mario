@@ -8,7 +8,7 @@ Removal,
 
 Display,
 
-Scaling
+Scaling,
 
 Updating objects during the game using the API features provided by web browsers,
 
