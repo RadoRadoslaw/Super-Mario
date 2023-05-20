@@ -9,10 +9,7 @@ body{
 	margin:0;
 	overflow: hidden;
 	background: white;
-   -webkit-transform:translate(-50%,-50%); 
 }
-
-
 
 
 
@@ -21,6 +18,11 @@ body{
 
 
 .bg{
+    position:absolute;
+top:50%;
+left:50%;
+-webkit-transform:translate(-50%,-50%);
+
     width: 1292px;
     height: 656px;
     position: absolute;
